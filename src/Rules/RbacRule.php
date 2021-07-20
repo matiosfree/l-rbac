@@ -11,6 +11,11 @@ abstract class RbacRule implements IRbacRuleContract {
      */
     protected string $name;
 
+    /**
+     * Get the name of the rule
+     *
+     * @return string|null
+     */
     public function getName():? string {
         return $this->name;
     }

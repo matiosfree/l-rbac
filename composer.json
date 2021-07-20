@@ -14,11 +14,13 @@
     "laravel/framework": "~5.7|>=6.0"
   },
   "require-dev": {
-    "phpunit/phpunit": "^8.0"
+    "phpunit/phpunit": "^8.0",
+    "orchestra/testbench": ">=3.0"
   },
   "autoload": {
     "psr-4": {
-      "MatiosFree\\LRbac\\": "src"
+      "MatiosFree\\LRbac\\": "src",
+      "MatiosFree\\App\\": "example"
     }
   },
   "autoload-dev": {

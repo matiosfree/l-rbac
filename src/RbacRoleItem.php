@@ -27,14 +27,23 @@ class RbacRoleItem implements IRbacItemContract {
         $this->ruleName = $roleItem['ruleName'] ?? null;
     }
 
+    /**
+     * @inheritDoc
+     */
     public function getName():? string  {
         return $this->name;
     }
 
+    /**
+     * @inheritDoc
+     */
     public function getDescription():? string  {
         return $this->description;
     }
 
+    /**
+     * @inheritDoc
+     */
     public function getRuleName():? string  {
         return $this->ruleName;
     }

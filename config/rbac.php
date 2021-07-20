@@ -11,6 +11,6 @@ return [
     |
     */
 
-    'handler' => MatiosFree\LRbac\RbacAuthorization::class,
+    'handler' => App\Authorization::class,
 
 ];

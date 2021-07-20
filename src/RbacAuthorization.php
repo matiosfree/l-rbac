@@ -8,25 +8,29 @@ use MatiosFree\LRbac\Contracts\IRbacRuleContract;
 abstract class RbacAuthorization {
 
     /**
-     * List of Permissions
+     * Get list of Permissions
      *
      * @return array
      */
     abstract public function getPermissions(): array;
 
     /**
-     * List of roles
+     * Get list of roles
      *
      * @return array
      */
     abstract public function getRoles(): array;
 
     /**
-     * @return array List with default roles for any user
+     * Get list with default roles for any user
+     *
+     * @return array
      */
     abstract public function getDefaultRoles(): array;
 
     /**
+     * Check if user has an access
+     *
      * @throws Exception
      */
     public function checkAccess($user, $ability, $arguments = []): bool {
@@ -61,12 +65,22 @@ abstract class RbacAuthorization {
     }
 
 
+    /**
+     * Get result of executed rule
+     *
+     * @param $user
+     * @param IRbacItemContract $item
+     * @param $arguments
+     * @return bool
+     * @throws Exception
+     */
     protected function executeRule($user, IRbacItemContract $item, $arguments): bool {
         if ($item->getRuleName() === null) {
             return true;
         }
 
         $rule = $this->getRule($item->getRuleName());
+
         if ($rule instanceof IRbacRuleContract) {
             return $rule->execute($user, $item, $arguments);
         }
@@ -74,6 +88,12 @@ abstract class RbacAuthorization {
         throw new \Exception("Rule not found: {$item->getRuleName()}");
     }
 
+    /**
+     * Get rule instance by the name of the class
+     *
+     * @param $ruleName
+     * @return IRbacRuleContract|null
+     */
     protected function getRule($ruleName):? IRbacRuleContract {
         return new $ruleName();
     }
