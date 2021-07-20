@@ -1,0 +1,36 @@
+{
+  "name": "matiosfree/l-rbac",
+  "description": "RBAC implementation for Laravel. Based on Laravel Abilities\\Gates.",
+  "license": "MIT",
+  "keywords": ["laravel", "rbac", "gate", "ability", "role", "permission"],
+  "homepage": "https://github.com/matiosfree/l-rbac",
+  "authors": [
+    {
+      "name": "Max Podkosov"
+    }
+  ],
+  "require": {
+    "php": "^7.4",
+    "laravel/framework": "~5.7|>=6.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^8.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "MatiosFree\\LRbac\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "MatiosFree\\LRbac\\Tests\\": "tests"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "MatiosFree\\LRbac\\RbacServiceProvider"
+      ]
+    }
+  }
+}
