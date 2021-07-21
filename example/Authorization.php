@@ -1,7 +1,7 @@
 <?php
 namespace MatiosFree\App;
 
-use MatiosFree\App\Rules\PostRule;
+use MatiosFree\App\Rules\OwnPostRule;
 use MatiosFree\App\Rules\RoleRule;
 use MatiosFree\LRbac\RbacAuthorization;
 
@@ -38,7 +38,7 @@ class Authorization extends RbacAuthorization {
             ],
             'updateOwnPost' => [
                 'description' => 'Edit own post',
-                'ruleName' => PostRule::class,
+                'ruleName' => OwnPostRule::class,
                 'children' => [
                     'updatePost'
                 ],

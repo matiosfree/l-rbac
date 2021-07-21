@@ -42,7 +42,7 @@ class UnitTest extends TestCase {
     public function testUserCanUpdateOwnPostByRole() {
         $this->user->role = 'manager';
         $this->user->id = 1;
-        $this->post->user_id = 1;
+        $this->post->author_id = 1;
 
         $this->assertTrue(Gate::forUser($this->user)->allows('updatePost', ['post' => $this->post]));
     }
@@ -51,7 +51,7 @@ class UnitTest extends TestCase {
     public function testUserCanUpdatePostByRole() {
         $this->user->role = 'manager';
         $this->user->id = 1;
-        $this->post->user_id = 2;
+        $this->post->author_id = 2;
 
         $this->assertTrue(Gate::forUser($this->user)->allows('updatePost', ['post' => $this->post]));
     }
@@ -60,7 +60,7 @@ class UnitTest extends TestCase {
     public function testUserCanUpdateOwnPostByRule() {
         $this->user->role = 'user';
         $this->user->id = 1;
-        $this->post->user_id = 1;
+        $this->post->author_id = 1;
 
         $this->assertTrue(Gate::forUser($this->user)->allows('updatePost', ['post' => $this->post]));
     }
@@ -69,7 +69,7 @@ class UnitTest extends TestCase {
     public function testUserCanNotUpdatePost() {
         $this->user->role = 'user';
         $this->user->id = 1;
-        $this->post->user_id = 2;
+        $this->post->author_id = 2;
 
         $this->assertFalse(Gate::forUser($this->user)->allows('updatePost', ['post' => $this->post]));
     }

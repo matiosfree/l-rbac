@@ -1,6 +1,6 @@
 {
   "name": "matiosfree/l-rbac",
-  "description": "RBAC implementation for Laravel. Based on Laravel Abilities\\Gates.",
+  "description": "The RBAC implementation for Laravel. Based on Laravel Abilities\\Gates.",
   "license": "MIT",
   "keywords": ["laravel", "rbac", "gate", "ability", "role", "permission"],
   "homepage": "https://github.com/matiosfree/l-rbac",

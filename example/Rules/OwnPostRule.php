@@ -4,10 +4,10 @@ namespace MatiosFree\App\Rules;
 
 use MatiosFree\LRbac\Contracts\IRbacRuleContract;
 
-class RoleRule implements IRbacRuleContract {
+class OwnPostRule implements IRbacRuleContract {
 
     public function execute($user, $item, $arguments): bool {
-        return $user->role === $item->getName();
+        return $user->id === $arguments['post']->author_id;
     }
 
 }
