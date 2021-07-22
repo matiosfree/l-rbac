@@ -30,7 +30,7 @@ class RbacServiceProvider extends ServiceProvider {
     public function register() {
         $this->mergeConfigFrom(__DIR__.'/../config/rbac.php', $this->packageName);
 
-        \Gate::before(function ($user, $ability, $arguments) {
+        \Gate::before(function (?object $user, $ability, $arguments) {
             $class = config($this->packageName.'.handler');
             $rbac = new $class();
             return $rbac->checkAccess($user, $ability, $arguments);
